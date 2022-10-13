@@ -1,22 +1,25 @@
+import {clientDatasource} from "../../datasource/exportDatasource";
+import {Client} from "../../interfaces/exportinterfaces";
+
 class ClientBusiness {
   getClientById = (idClient: string) => {
-    return {name: `Roger get -  id: ${idClient}`};
+    return clientDatasource.getClientById(idClient);
   };
 
-  getClients = () => {
-    return {name: "Roger get"};
+  getClients = (): Client => {
+    return clientDatasource.getClients();
   };
 
   postClients = () => {
-    return {name: "Roger post"};
+    return clientDatasource.postClients();
   };
 
   putClients = () => {
-    return {name: "Roger put"};
+    return clientDatasource.putClients();
   };
 
   deleteClients = () => {
-    return {name: "Roger delete"};
+    return clientDatasource.deleteClients();
   };
 }
 
