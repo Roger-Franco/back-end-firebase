@@ -1,12 +1,12 @@
 import {clientBusiness} from "../../business/exportBusiness";
-import {Client} from "../../interfaces/exportinterfaces";
+// import {Client} from "../../interfaces/exportinterfaces";
 
 class ClientController {
   getClientById = (idClient: string) => {
     return clientBusiness.getClientById(idClient);
   };
 
-  getClients = (): Client => {
+  getClients = () => {
     return clientBusiness.getClients();
   };
 

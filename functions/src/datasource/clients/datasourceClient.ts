@@ -1,14 +1,16 @@
-import {Client} from "../../interfaces/exportinterfaces";
+import {messageTreatmentBusiness} from "../../business/exportBusiness";
+import {Client, MessageTreatment} from "../../interfaces/exportinterfaces";
 
 class ClientDatasource {
   getClientById = (idClient: string) => {
     return {name: `Roger get -  id: ${idClient}`};
   };
 
-  getClients = (): Client => {
+  getClients = (): Client | MessageTreatment => {
     const client: Client = {id: "1", name: "Roger", email: "roger@roger.com",
       success: true};
-    return client;
+    return messageTreatmentBusiness
+        .successsMsg("Alguns clientes foram encontrados", client);
   };
 
   postClients = () => {

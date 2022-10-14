@@ -1,12 +1,12 @@
 import {clientDatasource} from "../../datasource/exportDatasource";
-import {Client} from "../../interfaces/exportinterfaces";
+// import {Client} from "../../interfaces/exportinterfaces";
 
 class ClientBusiness {
   getClientById = (idClient: string) => {
     return clientDatasource.getClientById(idClient);
   };
 
-  getClients = (): Client => {
+  getClients = () => {
     return clientDatasource.getClients();
   };
 
