@@ -1,3 +1,7 @@
+import * as admin from "firebase-admin";
+// const db = admin.firestore();
+const firestore = admin.firestore();
+
 import {messageTreatmentBusiness} from "../../business/exportBusiness";
 import {Client, MessageTreatment} from "../../interfaces/exportinterfaces";
 
@@ -13,8 +17,10 @@ class ClientDatasource {
         .successsMsg("Alguns clientes foram encontrados", client);
   };
 
-  postClients = () => {
-    return {name: "Roger post"};
+  createClients = (client: Client): MessageTreatment => {
+    // Add a new document in collection "clients"
+    const res = firestore.collection("clients").doc().set(client);
+    return messageTreatmentBusiness.successsMsg("Cliente adicionado!", res);
   };
 
   putClients = () => {
