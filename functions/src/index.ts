@@ -1,7 +1,19 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable max-len */
 import * as functions from "firebase-functions";
 import * as express from "express";
 
+
 import {clientController} from "./controller/exportController";
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./config/backfirebase.json");
+// não esta encontrando o arquivo acima
+// https://www.youtube.com/watch?v=KCYbGzACqO0&list=PLWOeg0VagJCQTPCtLXrMm2RM4OtpUOy_S&index=10&ab_channel=GuilhermedeSouzaSilveira
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://back-end-firebase-54c3b.firebaseio.com",
+});
 
 // APPS
 const appApi = express();
