@@ -45,8 +45,8 @@ appClients.route("/")
     .get((req, res) => {
       res.json(clientController.getClients());
     })
-    .post((req, res) => {
-      res.json(clientController.createClients(req.body));
+    .post(async (req, res) => {
+      res.json(await clientController.createClients(req.body));
     })
     .put((req, res) => {
       res.json(clientController.putClients());

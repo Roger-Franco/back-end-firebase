@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as admin from "firebase-admin";
 // const db = admin.firestore();
 const firestore = admin.firestore();
@@ -17,10 +18,10 @@ class ClientDatasource {
         .successsMsg("Alguns clientes foram encontrados", client);
   };
 
-  createClients = (client: Client): MessageTreatment => {
+  createClients = async (client: Client): Promise<MessageTreatment> => {
     // Add a new document in collection "clients"
-    const res = firestore.collection("clients").doc().set(client);
-    return messageTreatmentBusiness.successsMsg("Cliente adicionado!", res);
+    const res = await firestore.collection("clients").doc().set(client);
+    return messageTreatmentBusiness.successsMsg(`Cliente ${client.email} adicionado!`, res);
   };
 
   putClients = () => {
