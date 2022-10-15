@@ -18,8 +18,8 @@ class ClientController {
     return clientBusiness.putClients();
   };
 
-  deleteClients = () => {
-    return clientBusiness.deleteClients();
+  deleteClients = (idClient: string) => {
+    return clientBusiness.deleteClients(idClient);
   };
 }
 

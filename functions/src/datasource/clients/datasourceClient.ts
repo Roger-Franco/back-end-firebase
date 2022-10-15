@@ -35,8 +35,12 @@ class ClientDatasource {
     return {name: "Roger put"};
   };
 
-  deleteClients = () => {
-    return {name: "Roger delete"};
+  deleteClients = async (idClient: string): Promise<MessageTreatment> => {
+    return firestore.collection("clients").doc(idClient).delete().then(() => {
+      return messageTreatmentBusiness.successsMsg(`Cliente com o id: ${idClient} removido`);
+    }).catch((error) => {
+      return messageTreatmentBusiness.errorMsg("Falha ao buscar cliente, tente novamente", error);
+    });
   };
 }
 

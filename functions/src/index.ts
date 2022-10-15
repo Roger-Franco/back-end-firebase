@@ -51,8 +51,8 @@ appClients.route("/")
     .put((req, res) => {
       res.json(clientController.putClients());
     })
-    .delete((req, res) => {
-      res.json(clientController.deleteClients());
+    .delete(async (req, res) => {
+      res.json(await clientController.deleteClients(req.body.id));
     });
 
 
