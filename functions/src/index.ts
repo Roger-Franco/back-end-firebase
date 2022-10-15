@@ -48,8 +48,8 @@ appClients.route("/")
     .post(async (req, res) => {
       res.json(await clientController.createClients(req.body));
     })
-    .put((req, res) => {
-      res.json(clientController.putClients());
+    .put(async (req, res) => {
+      res.json(await clientController.updateClients(req.body));
     })
     .delete(async (req, res) => {
       res.json(await clientController.deleteClients(req.body.id));

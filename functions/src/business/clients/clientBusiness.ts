@@ -14,8 +14,10 @@ class ClientBusiness {
     return clientDatasource.createClients(client);
   };
 
-  putClients = () => {
-    return clientDatasource.putClients();
+  updateClients = (client: Client) => {
+    const idClient = client.id;
+    delete client.id; // está funcionando, apesar do erro de slint
+    return clientDatasource.updateClients(idClient, client);
   };
 
   deleteClients = (idClient: string) => {

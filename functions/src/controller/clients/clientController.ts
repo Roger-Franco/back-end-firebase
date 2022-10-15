@@ -14,8 +14,8 @@ class ClientController {
     return clientBusiness.createClients(client);
   };
 
-  putClients = () => {
-    return clientBusiness.putClients();
+  updateClients = (client: Client) => {
+    return clientBusiness.updateClients( client);
   };
 
   deleteClients = (idClient: string) => {

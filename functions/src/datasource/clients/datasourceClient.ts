@@ -31,8 +31,9 @@ class ClientDatasource {
     return messageTreatmentBusiness.successsMsg(`Cliente ${client.email} adicionado!`, res);
   };
 
-  putClients = () => {
-    return {name: "Roger put"};
+  updateClients = async (idClient: string, client: Client): Promise<MessageTreatment> => {
+    const res = await firestore.collection("clients").doc(idClient).set(client);
+    return messageTreatmentBusiness.successsMsg(`Cliente ${client.email} atualizado!`, res);
   };
 
   deleteClients = async (idClient: string): Promise<MessageTreatment> => {
