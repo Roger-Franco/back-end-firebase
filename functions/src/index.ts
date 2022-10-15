@@ -38,8 +38,8 @@ appApi.get("/", function(req, res) {
 });
 
 // ROTA - CLIENTS
-appClients.get("/:idClient", (req, res) => {
-  res.json(clientController.getClientById(req.params.idClient));
+appClients.get("/:idClient", async (req, res) => {
+  res.json(await clientController.getClientById(req.params.idClient));
 });
 appClients.route("/")
     .get((req, res) => {

@@ -7,8 +7,15 @@ import {messageTreatmentBusiness} from "../../business/exportBusiness";
 import {Client, MessageTreatment} from "../../interfaces/exportinterfaces";
 
 class ClientDatasource {
-  getClientById = (idClient: string) => {
-    return {name: `Roger get -  id: ${idClient}`};
+  getClientById = async (idClient: string): Promise<MessageTreatment> => {
+    const collection = await firestore.collection("clients").doc(idClient);
+    return await collection.get()
+        .then(async (result) => {
+          return await messageTreatmentBusiness.successsMsg("Cliente encontrado", result.data());
+        })
+        .catch((error) => {
+          return messageTreatmentBusiness.errorMsg("Falha ao buscar cliente, tente novamente", error);
+        });
   };
 
   getClients = (): Client | MessageTreatment => {
