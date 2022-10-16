@@ -12,3 +12,5 @@ The Firestore Emulator is currently not running.
 If you are not using Firestore in your testing, everything is fine. If you want to use Firestore in your testing, then the best way to set it up and start it is to run the following command to initialize the Firestore Emulator: firebase init emulators. Followed by: firebase emulators:start.
 firebase init emulators
 firebase emulators:start => tive alguns problemas com versões do JAVA, mas resolvi depois;
+
+Documentar o código: https://jsdoc.app/

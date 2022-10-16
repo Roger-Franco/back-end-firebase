@@ -1,3 +1,4 @@
+/* eslint-disable valid-jsdoc */
 /* eslint-disable max-len */
 import * as admin from "firebase-admin";
 // const db = admin.firestore();
@@ -6,7 +7,17 @@ const firestore = admin.firestore();
 import {messageTreatmentBusiness} from "../../business/exportBusiness";
 import {Client, MessageTreatment} from "../../interfaces/exportinterfaces";
 
+/**
+ * @class ClientDatasource
+ * @classdesc Esta classe é responsável pro se comunicar com o banco de dados Firestore
+ */
 class ClientDatasource {
+  /**
+   * @name getClientById
+   * @description busca um cliente por id informado
+   * @param {String} idClient
+   * @return {Promise<MessageTreatment>} MessageTreatment
+   */
   getClientById = async (idClient: string): Promise<MessageTreatment> => {
     const collection = await firestore.collection("clients").doc(idClient);
     return await collection.get()
