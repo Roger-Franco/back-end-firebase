@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {clientDatasource} from "../../datasource/exportDatasource";
 import {Client} from "../../interfaces/exportinterfaces";
 
@@ -15,9 +16,9 @@ class ClientBusiness {
   };
 
   updateClients = (client: Client) => {
-    const idClient = client.id;
-    delete client.id; // está funcionando, apesar do erro de slint
-    return clientDatasource.updateClients(idClient, client);
+    // const idClient = client.id;
+    // delete client.id; // não vai ser possível deletar o id dessa forma por causa do typescript
+    return clientDatasource.updateClients(client.id, client);
   };
 
   deleteClients = (idClient: string) => {
