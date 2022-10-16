@@ -14,3 +14,6 @@ firebase init emulators
 firebase emulators:start => tive alguns problemas com versões do JAVA, mas resolvi depois;
 
 Documentar o código: https://jsdoc.app/
+
+PAra subir o código para deploy, seria necessário o comando na raiz do projeto: firebase deploy. Não fiz pois o perfil grátis não suporta. Aula => 
+https://www.youtube.com/watch?v=uOak_HRBr4I&list=PLWOeg0VagJCQTPCtLXrMm2RM4OtpUOy_S&index=19&ab_channel=GuilhermedeSouzaSilveira
